@@ -36,3 +36,7 @@ How to prevent cheating:
 #### Q: 3. Do you feel that Central Bank Digital Currencies (CBDCs) are a move towards decentralisation? Will they help or hinder adoption of other cryptocurrencies?
 
 A:
+
+Perhaps CBDCs can indeed be seen as a step towards decentralization. While CBDCs still belong to the category of centralized controlled currencies, it's also possible for them to adopt blockchain technology for issuance.
+
+This allows more people to understand the concept of blockchain and accelerates the development of blockchain and related cryptocurrency technologies, such as security, privacy protection, and scalability. Whether CBDCs will hinder or help the adoption of cryptocurrencies primarily depends on the policies and implementations of central banks.
