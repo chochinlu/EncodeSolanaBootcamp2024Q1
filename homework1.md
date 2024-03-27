@@ -1,6 +1,6 @@
-Q: 1. Fill in the Sli.do Poll about your goals for this course
+Q: 1. Tell about your goals for this course
 
-A:
+A: Familiar with the priciples of blockchain, especially Solana, and proficient in Rust programming. Utilizing these two skills to create original projects, finding joy in the process, and earning reasonable rewards.
 
 Q: 2. Discuss in your teams what a decentralised version of a game like monopoly would be
 like, if there was no software on a central server. Consider What are the essential pieces of functionality ? How could people cheat ? How could you prevent them from cheating
