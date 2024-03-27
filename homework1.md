@@ -6,6 +6,33 @@ A: Familiar with the priciples of blockchain, especially Solana, and proficient 
 
 A:
 
+If it's a decentralized game like Monopoly:
+
+- Players can participate from anywhere in the world.
+- Transactions are secured using blockchain technology, ensuring immutability and transparency.
+- Every transaction and game action is recorded on the blockchain, allowing anyone to verify the game's integrity.
+- Smart contracts handle game logic and enforce rules, ensuring fairness and preventing cheating.
+- The development company doesn't require ongoing maintenance, significantly reducing maintenance costs.(maybe)
+
+I believe key mechanisms include:
+
+- Players' contributions needing a third-party to store and execute transactions.
+- Random mechanisms, including dice rolling and card drawing.
+- Data records, including user porfiles, transaction logs, game progress, and past game results.
+
+Areas where players might cheat include:
+
+- Modifying amounts.
+
+- Showing expenditure but not actually spending any funds.
+- Tampering with probabilities.
+- Fabricating historical records, awards, etc.
+
+How to prevent cheating:
+
+- An escrow account where funds are held in trust while two or more parties complete a transaction.
+  All logic execution, including dice rolling and data recording, is handled by smart contracts, ensuring that no one can tamper with them arbitrarily.
+
 #### Q: 3. Do you feel that Central Bank Digital Currencies (CBDCs) are a move towards decentralisation? Will they help or hinder adoption of other cryptocurrencies?
 
 A:
