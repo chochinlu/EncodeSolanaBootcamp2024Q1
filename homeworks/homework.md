@@ -78,6 +78,153 @@ A: Transaction speed and low transaction fees.
 
 [Fizz buzz program](https://github.com/chochinlu/hw4)
 
+Result: 
+
+```
+Welcome!! It's a bootcamp homework #4
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+fizz
+buzz
+fizz
+fizz
+buzz
+fizz
+fizz buzz
+Number of 'fizz buzz' occurred: 20
+```
+
 ## Homework #5
 
 [Rustlings](https://github.com/chochinlu/SolanaBootcamp/tree/main/homeworks_rust/homeworks/homework5)
