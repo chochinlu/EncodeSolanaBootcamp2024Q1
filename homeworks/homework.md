@@ -227,7 +227,7 @@ Number of 'fizz buzz' occurred: 20
 
 ## Homework #5
 
-[Rustlings](https://github.com/chochinlu/SolanaBootcamp/tree/main/homeworks_rust/homeworks/homework5)
+[source](https://github.com/chochinlu/SolanaBootcamp/tree/main/homeworks_rust/homeworks/homework5)
 
 ``` console
 ⠉ Compiling homeworks/homework5/standard_library_types/iterators1.rs...
@@ -260,4 +260,18 @@ You can also contribute your own exercises to help the greater community!
 
 Before reporting an issue or contributing, please read our guidelines:
 https://github.com/rust-lang/rustlings/blob/main/CONTRIBUTING.md
+```
+
+## Homework #6
+
+[source](https://github.com/chochinlu/SolanaBootcamp/tree/main/homeworks_rust/homeworks/homework6)
+
+```
+⠉ Compiling homeworks/homework6/option/option3.rs...
+✓ Successfully ran homeworks/homework6/option/option3.rs!
+★ All exercises completed! ★
+
++----------------------------------------------------+
+|          You made it to the End of this Homework!          |
++--------------------------  ------------------------+
 ```
