@@ -267,11 +267,15 @@ https://github.com/rust-lang/rustlings/blob/main/CONTRIBUTING.md
 [source](https://github.com/chochinlu/SolanaBootcamp/tree/main/homeworks_rust/homeworks/homework6)
 
 ```
-⠉ Compiling homeworks/homework6/option/option3.rs...
 ✓ Successfully ran homeworks/homework6/option/option3.rs!
 ★ All exercises completed! ★
+```
 
-+----------------------------------------------------+
-|          You made it to the End of this Homework!          |
-+--------------------------  ------------------------+
+## Homework #7
+
+[source](https://github.com/chochinlu/SolanaBootcamp/tree/main/homeworks_rust/homeworks/homework7)
+
+```
+✓ Successfully tested homeworks/homework7/tests/tests3.rs
+★ All exercises completed! ★
 ```
