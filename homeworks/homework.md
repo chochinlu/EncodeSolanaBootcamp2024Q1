@@ -279,3 +279,134 @@ https://github.com/rust-lang/rustlings/blob/main/CONTRIBUTING.md
 ✓ Successfully tested homeworks/homework7/tests/tests3.rs
 ★ All exercises completed! ★
 ```
+
+## Homework #8
+
+### Solana Tokens
+#### Q: 
+1. Follow the instructions from the lesson and use the spl-token-cli to create
+    -  A fungible token with a supply of 10,000
+    -  An NFT
+2. Try sending these tokens to others in your team , and use the command line to find details about the tokens.
+3. Try sending using both the transfer and transfer --fund-recipient approach.
+
+#### A:
+
+Creating a fungible token:
+
+``` console
+~ spl-token create-token
+Creating token CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX under program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+
+Address:  CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX
+Decimals:  9
+
+Signature: 4jiHPJ1dcjkmqzApGitvYPACwXv3astuJTFK7GFn1z5pcgJNEK6F3vd6piydniCVdsssVqL1JZLuxyT6u48aa8jv
+
+~ spl-token supply CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX
+0
+
+~ spl-token create-account CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX
+Creating account AQTM7NSB7dZuEDm2sJ6cdGYk5qn8Jxb972rfJiyPFmTB
+
+Signature: 66LrhUSfwtkakoB6Sh1eRdg5mf9f1W6ywBJKD1wzq3Cjve9fdbuvsoUYEEkWni9qvMnokiV9P6ava5u3RZE14ZgT
+
+~  spl-token mint CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX 10000
+Minting 10000 tokens
+  Token: CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX
+  Recipient: AQTM7NSB7dZuEDm2sJ6cdGYk5qn8Jxb972rfJiyPFmTB
+
+Signature: 5333kmZNuVwyVCr6SjimtFaKY6DXWgd2aJFBe9PfNU2pt5umK6iH2q9q715WXrDLaMRDvisUCctGHARagbPpvNK3
+
+~ spl-token balance CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX
+10000
+
+~ spl-token accounts
+Token                                         Balance
+-----------------------------------------------------
+CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX  10000
+FpE2NeHa3y3suV8wRfN9zofFtdG8DWsQZhCJ6mk5eD3Y  20
+
+~ spl-token transfer --fund-recipient CqhTU9FPHcetd9h35iwwDbXyiQFLL183mcRDpJLYiZXX 50 GBwEBtgDn2rjweyfpkNGujU7prLiEXnAtdhoVgxq6Lie
+Transfer 50 tokens
+  Sender: AQTM7NSB7dZuEDm2sJ6cdGYk5qn8Jxb972rfJiyPFmTB
+  Recipient: GBwEBtgDn2rjweyfpkNGujU7prLiEXnAtdhoVgxq6Lie
+  Recipient associated token account: 5sw75MP7XV5Vej5ax84AL7EcfotMWFcMgbQm1HdnqE75
+  Funding recipient: 5sw75MP7XV5Vej5ax84AL7EcfotMWFcMgbQm1HdnqE75
+
+Signature: 3BaowvcAQfXbM88nkaBZJDTdUhYPdxs6udcPpBFyvAZAkjvrFCBkGDyE4voPJaDS5bWrK5MX1crzQXZozMEQ9JBM
+
+~ spl-token balance --address 5sw75MP7XV5Vej5ax84AL7EcfotMWFcMgbQm1HdnqE75
+50
+~ spl-token balance --address  AQTM7NSB7dZuEDm2sJ6cdGYk5qn8Jxb972rfJiyPFmTB
+9950
+```
+
+Creating a non-fungible token: 
+
+``` console
+~ spl-token create-token --decimals 0
+Creating token 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM under program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+
+Address:  6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM
+Decimals:  0
+
+Signature: 3sKLPAbQsy3C7Yybc94VdsA84WL7SabYLBNKAGH2zGf5kqoby3hrKYSkcT8ZexHozXkz2xgeLPAAsT7ZuUQacdKx
+
+~ spl-token create-account 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM
+Creating account 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+
+Signature: 42m3SuBAN3m3Qv3Luxq4ASQBxB4GVmfkxNfN8WzYwAydE6WqrckHgYQC2pxKyEwsQS6fx5Y55FNRx6zbwWMKqJw2
+
+~  spl-token mint 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM 1 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+Minting 1 tokens
+  Token: 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM
+  Recipient: 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+
+Signature: FNkxRCxQvFaa765A3pqiJ47YoqQVbAvRf8r6WGbgzNtzj5h6B6eNexABehbsQServanSHAzbqKybAtnd9vwoMM5
+
+~ spl-token balance --address 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+1
+
+~ spl-token account-info --address 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+
+SPL Token Account
+  Address: 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+  Program: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+  Balance: 1
+  Decimals: 0
+  Mint: 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM
+  Owner: 6ijbDxeHVSUBDyNmrHLdXxYrrAdqKw7KpTNjQSHrw2wk
+  State: Initialized
+  Delegation: (not set)
+  Close authority: (not set)
+```
+
+Transfer the NFT to the anther account: 
+
+``` console
+~ spl-token transfer --fund-recipient 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM 1 GBwEBtgDn2rjweyfpkNGujU7prLiEXnAtdhoVgxq6Lie
+Transfer 1 tokens
+  Sender: 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+  Recipient: GBwEBtgDn2rjweyfpkNGujU7prLiEXnAtdhoVgxq6Lie
+  Recipient associated token account: 8kV2GKk2i2SXVZPsg4y9oujaV7pN1XXQ6zwNWfgri1sD
+  Funding recipient: 8kV2GKk2i2SXVZPsg4y9oujaV7pN1XXQ6zwNWfgri1sD
+
+Signature: 28hhEMcQB6XSN6w3xdU3dxLYE8TJnVoYpU5D3ohunMM6NfiwViZAymsRNLzX6m5CBukzXz72DzgLvWLMMRu9WUfW
+
+~ spl-token account-info --address 8kV2GKk2i2SXVZPsg4y9oujaV7pN1XXQ6zwNWfgri1sD
+
+SPL Token Account
+  Address: 8kV2GKk2i2SXVZPsg4y9oujaV7pN1XXQ6zwNWfgri1sD
+  Program: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+  Balance: 1
+  Decimals: 0
+  Mint: 6iZtv1pUUPAuBnTUZpD4PzMzkV1b5yBoVBCkHWa1k7xM
+  Owner: GBwEBtgDn2rjweyfpkNGujU7prLiEXnAtdhoVgxq6Lie
+  State: Initialized
+  Delegation: (not set)
+  Close authority: (not set)
+
+~ spl-token balance --address 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
+0
+```
