@@ -410,3 +410,140 @@ SPL Token Account
 ~ spl-token balance --address 2imdUQgMvLPfQBg7YMR8WcuiQe7pou5u3rQciTiz1gTw
 0
 ```
+
+### Solana Programs
+
+#### Q:
+Using the examples in the repo
+1. Modify the existing msg! in example1- helloworld to log the program ID.
+2. Retrieve the total program size of example1-helloworld.
+3. Retrieve the lamport balance of example2- counter.
+4. Modify the client for example2-counter to feed an incorrect address for the greeting
+
+#### A(1~2): 
+
+Update the content of `msg!` :
+
+``` rust
+    msg!(
+        "[lib] Hello World Rust program entrypoint. ==> Program ID: {}",
+        _program_id
+    );
+```
+
+Build and deploy the code:
+
+``` console
+~ cargo build-bpf --workspace --manifest-path=/home/park/wsl_codes/solana_test/SolanaBootcamp/examples_baremetal/Cargo.toml
+~ solana program deploy /home/park/wsl_codes/solana_test/SolanaBootcamp/examples_baremetal/target/deploy/helloworld.so
+```
+
+
+
+Run the client: 
+
+``` console
+~ ts-node ./examples_baremetal/example1-helloworld/client/main.ts
+
+local system client config location:  /home/park/.config/solana/cli/config.yml  
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+Connection to cluster established: http://localhost:8899 { 'feature-set': 4033350765, 'solana-core': '1.16.21' }
+
+It cost:
+        0.000004947185516357422 SOL
+        4992 Lamports
+to perform the call
+```
+
+
+`solana logs`: 
+
+``` console
+Transaction executed in slot 3341:
+  Signature: 57aPGfJMiw4GCYeeBVeKhsWsJPiRgo93mMuYyx2PkLJXxkiW8M5hEBoX5JRg9ybMJBmT2GvUJE8HbCeJrbW93ydN
+  Status: Ok
+  Log Messages:
+    Program CfGc5msBQbGUZpCjuBf2oU86xNoFaWq4NASUpjZRAAu4 invoke [1]
+    Program log: [lib] Hello World Rust program entrypoint. Program ID: CfGc5msBQbGUZpCjuBf2oU86xNoFaWq4NASUpjZRAAu4
+    Program CfGc5msBQbGUZpCjuBf2oU86xNoFaWq4NASUpjZRAAu4 consumed 11930 of 200000 compute units
+    Program CfGc5msBQbGUZpCjuBf2oU86xNoFaWq4NASUpjZRAAu4 success
+```
+
+Check the length of the program account: 
+
+``` console
+~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) solana account CfGc5msBQbGUZpCjuBf2oU86xNoFaWq4NASUpjZRAAu4
+
+Public Key: CfGc5msBQbGUZpCjuBf2oU86xNoFaWq4NASUpjZRAAu4
+Balance: 0.00114144 SOL
+Owner: BPFLoaderUpgradeab1e11111111111111111111111
+Executable: true
+Rent Epoch: 18446744073709551615
+Length: 36 (0x24) bytes
+0000:   02 00 00 00  d0 53 ff 14  ce 11 23 91  50 d2 03 ac   .....S....#.P...
+0010:   49 de 02 8c  eb 91 7f bc  d7 3c c9 a4  dd 0b 49 08   I........<....I.
+0020:   19 8a 65 39
+```
+
+
+#### A(3~4): 
+
+``` console
+~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) ts-node ./examples_baremetal/example2-counter/client/main.ts
+Let's increment counter for an account!
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+Connection to cluster established: http://localhost:8899 { 'feature-set': 4033350765, 'solana-core': '1.16.21' }
+Program ID account:  CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr
+Account 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359 not deployed, deploying now
+Creating account 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359 to say hello to
+5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359 has been greeted 0 time(s)
+
+It cost:
+        0.0009236931800842285 SOL
+        923712 Lamports
+to perform the call
+
+~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) ts-node ./examples_baremetal/example2-counter/client/main.ts
+Let's increment counter for an account!
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+Connection to cluster established: http://localhost:8899 { 'feature-set': 4033350765, 'solana-core': '1.16.21' }
+Program ID account:  CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr
+Writing to the greeting counter 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359
+5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359 has been greeted 1 time(s)
+
+It cost:
+        0.0000050067901611328125 SOL
+        4992 Lamports
+to perform the call
+```
+
+Get the balace of this program account : 
+
+``` console
+~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) solana balance --lamports CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr
+1141440 lamports
+```
+
+The last solana logs: 
+
+``` console 
+Transaction executed in slot 8542:
+  Signature: 5uGtU2EzSwGiaV81tKZt5vJ9orcMWVuAd4YSmd816HNMfAqK3ABhzR3JDUzv8LcNPZHmwBo4EcFD4DMj5NVn7CP8
+  Status: Ok
+  Log Messages:
+    Program CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr invoke [1]
+    Program log: [lib] Solana Example2 counter program entrypoint
+    Program log: [lib] hello account: 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359
+    Program log:  Greeted account has the correct program id
+    Program log: Program added to the greeting counter struct stored at: 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359
+    Program log:  Greeted 1 time(s)!
+    Program CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr consumed 24818 of 200000 compute units
+    Program CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr success
+```
