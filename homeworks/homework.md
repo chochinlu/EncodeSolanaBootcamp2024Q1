@@ -487,10 +487,22 @@ Length: 36 (0x24) bytes
 ```
 
 
-#### A(3~4): 
+#### A(3): 
+
+Deploy the program:
 
 ``` console
-~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) ts-node ./examples_baremetal/example2-counter/client/main.ts
+ ~/wsl_codes/solana_test/SolanaBootcamp(main U:2 ✗) npm run deploy:2
+
+> solana-course@0.0.1 deploy:2
+> solana program deploy ./examples_baremetal/target/deploy/counter.so
+
+Program Id: CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr                                                                    
+~/wsl_codes/solana_test/SolanaBootcamp(main U:2 ?:1 ✗) npm run call:2
+
+> solana-course@0.0.1 call:2
+> ts-node examples_baremetal/example2-counter/client/main.ts
+
 Let's increment counter for an account!
 
 local system client config location:  /home/park/.config/solana/cli/config.yml
@@ -506,8 +518,38 @@ It cost:
         0.0009236931800842285 SOL
         923712 Lamports
 to perform the call
+```
 
-~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) ts-node ./examples_baremetal/example2-counter/client/main.ts
+Get the balace of this program account : 
+
+``` console
+~/wsl_codes/solana_test/SolanaBootcamp(main U:2 ?:1 ✗)  solana balance --lamports CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr
+1141440 lamports
+```
+
+#### A(4)
+
+Just add the incorrect key as the pubkey:
+
+``` rust
+    const INCORRECT_KEY = PublicKey.default;
+
+    const instruction = new TransactionInstruction({
+      keys: [{ pubkey: INCORRECT_KEY, isSigner: false, isWritable: true }],
+      programId,
+      data: Buffer.alloc(0), // All instructions are hellos
+    });
+```
+
+
+Call the program: 
+
+```
+~/wsl_codes/solana_test/SolanaBootcamp(main U:2 ?:1 ✗) npm run call:2
+
+> solana-course@0.0.1 call:2
+> ts-node examples_baremetal/example2-counter/client/main.ts
+
 Let's increment counter for an account!
 
 local system client config location:  /home/park/.config/solana/cli/config.yml
@@ -516,34 +558,10 @@ local system client config location:  /home/park/.config/solana/cli/config.yml
 Connection to cluster established: http://localhost:8899 { 'feature-set': 4033350765, 'solana-core': '1.16.21' }
 Program ID account:  CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr
 Writing to the greeting counter 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359
-5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359 has been greeted 1 time(s)
-
-It cost:
-        0.0000050067901611328125 SOL
-        4992 Lamports
-to perform the call
-```
-
-Get the balace of this program account : 
-
-``` console
-~/wsl_codes/solana_test/SolanaBootcamp(main U:1 ✗) solana balance --lamports CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr
-1141440 lamports
-```
-
-The last solana logs: 
-
-``` console 
-Transaction executed in slot 8542:
-  Signature: 5uGtU2EzSwGiaV81tKZt5vJ9orcMWVuAd4YSmd816HNMfAqK3ABhzR3JDUzv8LcNPZHmwBo4EcFD4DMj5NVn7CP8
-  Status: Ok
-  Log Messages:
+INCORRECT_KEY:  PublicKey { _bn: <BN: 0> }
+Transaction simulation failed: Error processing Instruction 0: incorrect program id for instruction
     Program CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr invoke [1]
     Program log: [lib] Solana Example2 counter program entrypoint
-    Program log: [lib] hello account: 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359
-    Program log:  Greeted account has the correct program id
-    Program log: Program added to the greeting counter struct stored at: 5dnWXpErTK1cyEnM1YRTFkjhYzmsv19Toqt24hrqz359
-    Program log:  Greeted 1 time(s)!
-    Program CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr consumed 24818 of 200000 compute units
-    Program CGJZSQqBe96BTUM6kJcwLuUA4XtwLgEoGLFAkNC289zr success
+    Program log: [lib] hello account: 11111111111111111111111111111111
+    Program log:  Greeted account does not have the correct program id
 ```
