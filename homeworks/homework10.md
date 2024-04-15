@@ -16,16 +16,17 @@ Try a simple client transaction in Solana playground (https://beta.solpg.io/)
 Add the following code to claim the air drop: 
 
 ``` typescript
-console.log("Getting some airdrop....");
+console.log("Getting 1 SOL airdrop....");
 const signature = await pg.connection.requestAirdrop(
   pg.wallet.publicKey,
   LAMPORTS_PER_SOL
 );
 
 await pg.connection.confirmTransaction(signature);
+
+balance = await pg.connection.getBalance(pg.wallet.publicKey);
 console.log(`My balance: ${balance / web3.LAMPORTS_PER_SOL} SOL`);
 ```
-
 
 #### Q 2:
 
