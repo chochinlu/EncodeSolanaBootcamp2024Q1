@@ -252,6 +252,33 @@ It cost:
         0.0000050067901611328125 SOL
         4992 Lamports
 to perform the call
+
+~/wsl_codes/solana_test/SolanaBootcamp(main → origin ↑6 S:1 U:2 ✗) npm run call:6
+
+> solana-course@0.0.1 call:6
+> ts-node examples_baremetal/example6-pda/client/main.ts
+
+Let's derive some accounts!
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+
+local system client config location:  /home/park/.config/solana/cli/config.yml
+Connection to cluster established: http://localhost:8899 { 'feature-set': 3469865029, 'solana-core': '1.18.9' }
+Pick option:
+        Create PDA:     (1)
+        Write PDA:      (2)
+        Read PDA:       (3)
+        Read program accounts:  (4)
+3
+Provide seed for the account to read.
+park
+
+ FffkWWHviwpfaWcMyA5rNB2LsVzLte4kvXnq2DYwS2Jj contains: pppp
+
+It cost:
+        0 SOL
+        0 Lamports
+to perform the call
 ```
 
 
